@@ -1,33 +1,53 @@
-# Props Calculator
+# Props
 
-In this activity we will write a component that can perform some arithmetic using passed props and render an element containing the result.
+In this activity, we will modify a React application to make it more DRY through the use of props.
 
 ## Instructions
 
-* Replace your React application's `src` folder with [Unsolved/src](Unsolved/src). Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
+* Replace your Create React App's `src` folder with the provided [src](Unsolved/src) folder.
 
-* This activity uses Bootstrap, so make sure you `import 'bootstrap/dist/css/bootstrap.min.css';` in `index.js`.
+* Stop the dev server if it is already running. Start the app in dev mode by running `npm start`. Open [localhost:3000](http://localhost:3000) in your web browser and take a moment to study the rendered app.
 
-* Open your web browser to [localhost:3000](http://localhost:3000). Take a moment to observe the rendered app.
+  ![Unfinished Diagram](Images/01-Unfinished-Diagram.png)
 
-* Open `src/components/Calculator.js` in your editor and take a moment to study the application's code.
+  * This application is the start of a friends list for a social network.
 
-* Write a component named "Math" and render one Math component in the place of each "?" mark.
+* Open `src/App.js` in your editor and notice how the `SpongebobCard`, `MrKrabsCard`, and `SquidwardCard` are being rendered inside of `Wrapper`, which is in turn being rendered inside of the `App` component.
 
-* The Math component should perform some arithmetic using 3 props:
+* Open up each component's files in turn and briefly study the JSX being returned by each. Most importantly, notice how all of the card components render very similar JSX. This isn't very DRY code. **We'll fix this by creating a brand new `FriendCard` component and rendering it once for each friend. We'll pass down the differentiating content in the form of props.** 
 
-  * `num1` - a number
+  ![Finished Diagram](Images/02-Finished-Diagram.png)
 
-  * `operator` -  a string representing an arithmetic operator, e.g. "+", "-", "*", "/"
+* Take a moment to study the `src/friends.json` file. This file contains the data that makes each friend card unique from one another. We'll use this file to pass props down to our new `FriendCard` component.
 
-  * `num2` - a number
+* Import the `src/friends.json` file into `src/App.js`. This can be achieved with the following syntax: 
 
-* The Math component should render the result of problem in a `span` tag. e.g. 19 + 341 = 360
+  ```js
+  import friends from "./friends.json";
+  ```
 
-## Hints
+* Inside of `src/App.js`, remove the imports for each friend's card, and remove the JSX rendering each card inside of this file.
 
-* Check out [React's documentation for props](https://facebook.github.io/react/docs/components-and-props.html)
+* Create a brand new component named `FriendCard`.
 
-## Bonus
+  * The `FriendCard` component can initially contain the same code as `SpongebobCard` with the same CSS file.
 
-* Using the [style tag](https://facebook.github.io/react/docs/dom-elements.html#style), set the font-size of the `span` rendered by the `Math` component to be the result of the arithmetic problem in pixels. e.g. the font-size of the `span` rendering the result of "19 + 341 = 360" should be 360 pixels.
+  * Import the `FriendCard` component inside of `src/App.js` and render it inside of the `Wrapper` component. Before going any further, check your browser. If successful, you should only see one card being rendered.
+
+* Still inside of `src/App.js`, use the first friend object in the `friends` JSON file to pass the following props down to your rendered `FriendCard` component.
+
+  * `name`
+
+  * `image`
+
+  * `occupation`
+
+  * `location`
+
+* Modify the `FriendCard` component so that it accepts and renders all of the passed props in place of the currently hard coded values. Once complete, check your browser to make sure the first `FriendCard` is still being properly rendered.
+
+* Inside of `src/App.js`, render another `FriendCard` component for the second and third piece of friend data. Pass down the appropriate JSON data for each as props. If successful, you should see each friend being rendered to the browser, utilizing the same same `FriendCard` component three times.
+
+### Hints
+
+* Check out [React's documentation on components & props](https://facebook.github.io/react/docs/components-and-props.html) 
