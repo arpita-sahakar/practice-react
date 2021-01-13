@@ -1,21 +1,31 @@
-# Decrement Counter
+# Friends List Refactor
 
-In this activity we will add a "Decrement" button and click handler to the Click Counter application.
+In this activity, we will use our new React skills to further refactor the Friends List application from earlier.
 
 ## Instructions
 
-* Copy the [src](Unsolved/src) folder into your Create React App boilerplate. Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
+* Replace your React App's `src` folder with [Unsolved/src](Unsolved/src). Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
 
-* This activity uses Bootstrap, so make sure you `import 'bootstrap/dist/css/bootstrap.min.css';` in `index.js`
+* Open [localhost:3000](http://localhost:3000) in your browser and take a moment to study the rendered app.
 
-* Open [localhost:3000](http://localhost:3000) in your web browser. This application's starter code is identical to the last example.
+* Refactor the `App` component so that it's a class component. 
 
-* Add code to the `Counter` component to add a `Decrement` button which _decreases_ the value of `this.state.count` by one each time it is clicked.
+  * Set the component's initial state to the `friends` JSON array. 
+  
+  * Inside of the `render` method, map over `this.state.friends` to render each `FriendCard` component passing in the appropriate props.
 
-### Hints
+* Add functionality to the application so that when the red X icon on a `FriendCard` is clicked, that `FriendCard` is removed from the page. 
+  
+  * To accomplish this, you should define a method inside of `App` which accepts an `id` parameter, and then utilize filter to create a new array of friends without the passed `id`. 
+  
+  * Then set `this.state.friends` to this new filtered array. 
+  
+  * You'll want to pass this method into each `FriendCard` component and attach an `onClick` listener to the "remove" span.
 
-* Use the `Increment` button and event handler as a reference for creating the new button.
+## Hints
 
-### Bonus
+* Test your application after each step!!
 
-* Inside of `Counter.js`, separate the `card-body` element and its children into a new component named `cardBody`. Render `cardBody` inside of the `Counter` component and pass the `count` state and click handlers to the new component as props. The completed bonus should still increment or decrement the counter when the buttons are clicked.
+* Refer back to the previous in class activities for if you get stuck anywhere.
+
+* If you get stuck working with the event handler, spend a few minutes reading [React's Documentation](https://facebook.github.io/react/docs/handling-events.html) on handling events. 
