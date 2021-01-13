@@ -1,31 +1,21 @@
-# Component Map
+# Decrement Counter
 
-In this activity we will map over a list of data and render components from each piece of data.
+In this activity we will add a "Decrement" button and click handler to the Click Counter application.
 
 ## Instructions
 
-* Replace your React application's `src` folder with [src](Unsolved/src). Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
+* Copy the [src](Unsolved/src) folder into your Create React App boilerplate. Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
 
 * This activity uses Bootstrap, so make sure you `import 'bootstrap/dist/css/bootstrap.min.css';` in `index.js`
 
-* Open the application in your web browser and study the rendered application. Then take a minute to study the included components:
+* Open [localhost:3000](http://localhost:3000) in your web browser. This application's starter code is identical to the last example.
 
-  * **App**: Our Application's root component.
-
-  * **List**: Responsible for rendering an unordered list from `props.data`.
-
-* Modify the `List` component so that inside of its `ul` tags, it renders one `li` tag for each item in array of grocery objects being passed via props. Each `li` tag should display the `text` property of each grocery object. The array map method should be used for this.
-
-* For styling purposes, give each `li` tag a class of `list-group-item`.
+* Add code to the `Counter` component to add a `Decrement` button which _decreases_ the value of `this.state.count` by one each time it is clicked.
 
 ### Hints
 
-* You should definitely look at [React's documentation for lists and keys](https://facebook.github.io/react/docs/lists-and-keys.html)
-
-* See MDN Documentation for [Array.prototype.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map).
-
-* You will only need to modify the `List` component.
+* Use the `Increment` button and event handler as a reference for creating the new button.
 
 ### Bonus
 
-* Inside of the `List` component, render a list of **only** the groceries which **have not** been purchased. Use the [Array.prototype.filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) to filter the array before mapping.
+* Inside of `Counter.js`, separate the `card-body` element and its children into a new component named `cardBody`. Render `cardBody` inside of the `Counter` component and pass the `count` state and click handlers to the new component as props. The completed bonus should still increment or decrement the counter when the buttons are clicked.
