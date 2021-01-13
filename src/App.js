@@ -35,7 +35,7 @@ const groceries = [
 ];
 
 function App() {
-  return <List groceries={groceries} />;
+  return <List myGroceries={groceries} />;
 }
 
 export default App;

@@ -9,7 +9,7 @@ function List(props) {
 
   return (
     <ul className="list-group">
-      {createLi(props.groceries)}
+      {createLi(props.myGroceries)}
 
     </ul>
   );
