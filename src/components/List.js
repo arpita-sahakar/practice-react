@@ -1,6 +1,6 @@
 import React from "react";
 
-function liCreate(groceries) {
+function createLi(groceries) {
   const map1 = groceries.map((grocery) => <li>{grocery.name}</li>);
   return map1;
 }
@@ -9,7 +9,7 @@ function List(props) {
 
   return (
     <ul className="list-group">
-      {liCreate(props.groceries)}
+      {createLi(props.groceries)}
 
     </ul>
   );
