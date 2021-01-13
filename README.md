@@ -1,31 +1,27 @@
-# Friends List Refactor
+# Fun With Forms
 
-In this activity, we will use our new React skills to further refactor the Friends List application from earlier.
+In this activity we will add some new functionality to the previous form example.
 
 ## Instructions
 
-* Replace your React App's `src` folder with [Unsolved/src](Unsolved/src). Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
+* Replace your React application's `src` folder with [Unsolved/src](Unsolved/src). Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
 
-* Open [localhost:3000](http://localhost:3000) in your browser and take a moment to study the rendered app.
+* Update the `Form` component to add the following:
 
-* Refactor the `App` component so that it's a class component. 
-
-  * Set the component's initial state to the `friends` JSON array. 
+  1. A new input field that updates `this.state.password`. 
   
-  * Inside of the `render` method, map over `this.state.friends` to render each `FriendCard` component passing in the appropriate props.
+     * Set the initial value of `this.state.password` to an empty string.
 
-* Add functionality to the application so that when the red X icon on a `FriendCard` is clicked, that `FriendCard` is removed from the page. 
+  2. Whenever a user clicks the "Submit" button, add code to accomplish the following:
+
+     1. If the user hasn't provided a first and last name, throw an alert saying: "Fill out your first and last name please!".
+
+     2. If the user has provided a first and last name, but their password is less than 6 characters, throw an alert saying, "Choose a more secure password," followed by the full name. E.g. "Choose a more secure password, John Smith!"
+
+     3. Else, throw an alert to greet the user. E.g. "Hello, John Smith!".
   
-  * To accomplish this, you should define a method inside of `App` which accepts an `id` parameter, and then utilize filter to create a new array of friends without the passed `id`. 
-  
-  * Then set `this.state.friends` to this new filtered array. 
-  
-  * You'll want to pass this method into each `FriendCard` component and attach an `onClick` listener to the "remove" span.
+  3. Do not allow the user to type in a password that is longer than 15 characters. i.e. the length of the password state should never go beyond 15 characters.
 
-## Hints
+### Hints 
 
-* Test your application after each step!!
-
-* Refer back to the previous in class activities for if you get stuck anywhere.
-
-* If you get stuck working with the event handler, spend a few minutes reading [React's Documentation](https://facebook.github.io/react/docs/handling-events.html) on handling events. 
+* You may want to look into using [String.prototype.substring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring) to prevent the password field from going beyond 15 characters.
