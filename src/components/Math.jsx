@@ -1,25 +1,29 @@
-function result(num1, operator, num2) {
-  if (operator === "+") {
-    return Number(num1) + Number(num2);
-  } else if (operator === "-") {
-    return Number(num1 - num2);
-  } else if (operator === "*") {
-    return Number(num1) * Number(num2);
-  } else if (operator === "/") {
-    return num1 / num2;
-  } else if (operator === "%") {
-    return num1 % num2;
-  }
-}
+import React from "react";
+
 
 function Math(props) {
+  let result;
+  if (props.operator === "+") {
+    result = Number(props.num1) + Number(props.num2);
+  } else if (props.operator === "-") {
+    result = Number(props.num1 - props.num2);
+  } else if (props.operator === "*") {
+    result = Number(props.num1) * Number(props.num2);
+  } else if (props.operator === "/") {
+    result = props.num1 / props.num2;
+  } else if (props.operator === "%") {
+    result = props.num1 % props.num2;
+  }
+
   return (
     <span>
       <div>
-        {result(props.num1, props.operator, props.num2)}
+        {result}
       </div>
 
     </span>
   );
 }
+
+
 export default Math;
