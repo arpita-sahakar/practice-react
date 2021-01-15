@@ -1,8 +1,10 @@
 import React from "react";
-import Form from "./components/Form/form.jsx";
+// import SearchResultContainer from "./components/SearchResultContainer";
+import SearchResultFunctionalContainer from "./components/SearchResultFunctionalContainer";
 
 function App() {
-  return <Form />;
+  // return <SearchResultContainer />;
+  return <SearchResultFunctionalContainer />;
 }
 
 export default App;
