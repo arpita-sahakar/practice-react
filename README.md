@@ -1,27 +1,37 @@
-# Fun With Forms
+# AJAX
 
-In this activity we will add some new functionality to the previous form example.
+In this activity we will create a simple React application with which users can query the OMDB API and display information about the movie searched for.
 
 ## Instructions
 
-* Replace your React application's `src` folder with [Unsolved/src](Unsolved/src). Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
+* Replace your React application's `src` folder with [Unsolved/src](Unsolved/src). 
 
-* Update the `Form` component to add the following:
+* This activity uses Bootstrap, so make sure you `import 'bootstrap/dist/css/bootstrap.min.css';` in `index.js`
 
-  1. A new input field that updates `this.state.password`. 
-  
-     * Set the initial value of `this.state.password` to an empty string.
+* Be sure to install the axios library by running `npm install axios` in your terminal.
 
-  2. Whenever a user clicks the "Submit" button, add code to accomplish the following:
+* Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
 
-     1. If the user hasn't provided a first and last name, throw an alert saying: "Fill out your first and last name please!".
+* Open your browser to [localhost:3000](http://localhost:3000) and study the rendered application.
 
-     2. If the user has provided a first and last name, but their password is less than 6 characters, throw an alert saying, "Choose a more secure password," followed by the full name. E.g. "Choose a more secure password, John Smith!"
+* This application is supposed to allow users to search for the name of a movie via the form on the right of the page, and display information from the OMDB API on the left side. Currently the application isn't fully functional.
 
-     3. Else, throw an alert to greet the user. E.g. "Hello, John Smith!".
-  
-  3. Do not allow the user to type in a password that is longer than 15 characters. i.e. the length of the password state should never go beyond 15 characters.
+* Open the `src/OmdbContainer.js` and add the following code:
 
-### Hints 
+  * Add a `componentDidMount` method which should utilize the `API.js` module to query the OMDB API for the movie "The Matrix" when the component mounts. Then update this component's `result` state with the result of the AJAX request. You can verify you completed this step correctly by refreshing the page in your web browser. If successful, the application should display information about the movie "The Matrix" when the page first loads.
 
-* You may want to look into using [String.prototype.substring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring) to prevent the password field from going beyond 15 characters.
+  * Add a `handleInputChange` method which should be called whenever the user types into the input field. Inside of this method, set `this.state.search` equal to the new value of the input field. You can verify you've completed this step correctly if you can now type into the input field.
+
+  * Add a `handleFormSubmit` method which should be called when the form is submitted. Inside of this method, utilize the `API` module to search the OMDB API for the value of `this.state.search`. Then update this component's `result` state with the result. You can verify you completed this step correctly by searching for the name of a movie. If successful, you should see the movie poster and some information about the movie appear in the left card.
+
+### Bonus
+
+* After you get the rest of the application code working, add code so that if no movie results are found, a message is displayed indicating this in place of the `MovieDetail` component. Otherwise display the `MovieDetail` component. You can verify you completed this step correctly by searching for an empty string. If successful, you should see your message being displayed instead of any movie information.
+
+### Hints
+
+* Don't forget to call `event.preventDefault()` inside of any event handlers called in response to an HTML form being submitted.
+
+* The only code you need to modify is inside of `OmdbContainer.js`.
+
+* If you make it to the bonus, check out [React's Documentation on Conditional Rendering](https://facebook.github.io/react/docs/conditional-rendering.html). Use any of the techniques described to complete the bonus.

@@ -1,10 +1,8 @@
 import React from "react";
-// import SearchResultContainer from "./components/SearchResultContainer";
-import SearchResultFunctionalContainer from "./components/SearchResultFunctionalContainer";
+import OmdbContainer from "./components/OmdbContainer";
 
 function App() {
-  // return <SearchResultContainer />;
-  return <SearchResultFunctionalContainer />;
+  return <OmdbContainer />;
 }
 
 export default App;
