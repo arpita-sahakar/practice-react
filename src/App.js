@@ -1,10 +1,8 @@
 import React from "react";
-// import SearchResultContainer from "./components/SearchResultContainer";
-import SearchResultFunctionalContainer from "./components/SearchResultFunctionalContainer";
+import PortfolioContainer from "./components/PortfolioContainer";
 
 function App() {
-  // return <SearchResultContainer />;
-  return <SearchResultFunctionalContainer />;
+  return <PortfolioContainer />;
 }
 
 export default App;

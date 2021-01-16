@@ -1,27 +1,33 @@
-# Fun With Forms
+# Conditional Render
 
-In this activity we will add some new functionality to the previous form example.
+In this activity we will render one of four different components based upon our component's state.
 
 ## Instructions
 
-* Replace your React application's `src` folder with [Unsolved/src](Unsolved/src). Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
+* Replace your application's `src` folder with [Unsolved/src](Unsolved/src). Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
 
-* Update the `Form` component to add the following:
+* This activity uses Bootstrap, so make sure you `import 'bootstrap/dist/css/bootstrap.min.css';` in `index.js`
 
-  1. A new input field that updates `this.state.password`. 
+* Navigate to [localhost:3000](http://localhost:3000) in your web browser and take a moment to study the rendered application.
+
+  * At the top of the page there's a Bootstrap NavTabs component. Whenever a nav element is clicked, the nav element goes into an "active" state. Whenever a nav item is clicked, it sets `this.state.currentPage` inside of `PortfolioContainer` to the selected navigation item.
+
+* Now add code to `PortfolioContainer` so that depending on the currently selected page, a different component is rendered underneath the `NavTabs` component. Example:
+
+  * Render the `About` component when `this.state.currentPage === "About"`
   
-     * Set the initial value of `this.state.password` to an empty string.
+  * Render the `Blog` component when `this.state.currentPage === "Blog"`
 
-  2. Whenever a user clicks the "Submit" button, add code to accomplish the following:
+  * Render the `Contact` component when `this.state.currentPage === "Contact"`
 
-     1. If the user hasn't provided a first and last name, throw an alert saying: "Fill out your first and last name please!".
+  * Render the `Home` component when `this.state.currentPage === "Home"`
 
-     2. If the user has provided a first and last name, but their password is less than 6 characters, throw an alert saying, "Choose a more secure password," followed by the full name. E.g. "Choose a more secure password, John Smith!"
+### Bonus
 
-     3. Else, throw an alert to greet the user. E.g. "Hello, John Smith!".
-  
-  3. Do not allow the user to type in a password that is longer than 15 characters. i.e. the length of the password state should never go beyond 15 characters.
+* Inside of `src/components/NavTabs.js`, add code so that the `a` tag for the `currentPage` has the "active" class. This component receives the `currentPage` via props.
 
-### Hints 
+### Hints
 
-* You may want to look into using [String.prototype.substring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring) to prevent the password field from going beyond 15 characters.
+* Refer to [React's Documentation on Conditional Rendering](https://facebook.github.io/react/docs/conditional-rendering.html) if you get stuck.
+
+* Consider defining a method which returns a different component based on the value of `this.state.currentPage`.
